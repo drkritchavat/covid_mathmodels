@@ -35,19 +35,19 @@ class SEIQR(MathModels):
             S = Y['S'],
             E = Y['E'],
             I = Y['I'],
-            Q = Y['S']
-            R = Y['R']
+            Q = Y['S'],
+            R = Y['R'],
         )
         params = self.get_params()
         beta_I = self.to_beta(
             R0 = params['R0_I'],
             N = sum(self.Y.values()),
-            dInf = params['dInf']
+            dInf = params['dInf'],
             )
         beta_Q = self.to_beta(
             R0 = params['R0_Q'],
             N = sum(self.Y.values()),
-            dInf = params['dInf']
+            dInf = params['dInf'],
             )
         kwargs = dict(
             alpha = 1/params['dInc'],
@@ -55,7 +55,7 @@ class SEIQR(MathModels):
             beta_Q = beta_Q,
             epsilon_E = params['epsilon_E'],
             epsilon_I = params['epsilon_I'],
-            gamma = 1/params['dInf']
+            gamma = 1/params['dInf'],
         )
 
         result = self.numerical_solve(
