@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.integrate import odeint
+import pandas as pd
 class MathModels:
     def __init__(self,Y,T,params):
         self.params = params
@@ -22,6 +23,21 @@ class MathModels:
     def to_beta(self,R0,N,dInf):
         beta = R0/N/dInf
         return beta
+
+    def set_R0t(self,R0t):
+        """
+        Take Pandas dataframe with R0 and time
+        
+        """
+        self.R0t = R0t
+
+    def get_R0(self,t):
+        query = self.R0t.query("t >= @t")
+        if len(query) == 0:
+            R0 = self.R0t['R0'].values[-1]
+        else:
+            R0 = query['R0'].values[0]
+        return R0
 
     def numerical_solve(self,eq,Y,t,args):
         result = odeint(
