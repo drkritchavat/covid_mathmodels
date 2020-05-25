@@ -14,9 +14,9 @@ class SEIQR(MathModels):
         gamma,
         ):
         R0 = self.get_R0(t)
-        N = sum(Y)
+        #N = sum(Y)
         dInf = 1/gamma
-        beta_I = self.to_beta(R0=R0,N=N,dInf=dInf)
+        beta_I = self.to_beta(R0=R0,N=69000000,dInf=dInf)
 
         """
         Original SEIR Model 
