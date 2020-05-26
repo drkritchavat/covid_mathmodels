@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.integrate import odeint
-from MathModels import MathModels
+from .MathModels import MathModels
 
 class SEIR(MathModels):
     def SEIReq(

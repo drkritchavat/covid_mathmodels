@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.integrate import odeint
-from MathModels import MathModels
+from .MathModels import MathModels
 
-class int_travel:
+class IntTravel:
     def __init__(
         self,
         T = 90,
