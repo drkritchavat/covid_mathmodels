@@ -38,7 +38,7 @@ class SEIQR(MathModels):
             S = Y['S'],
             E = Y['E'],
             I = Y['I'],
-            Q = Y['S'],
+            Q = Y['Q'],
             R = Y['R'],
         )
         params = self.get_params()
